@@ -55,8 +55,16 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput = function() {
-	
+Player.prototype.handleInput = function(allowedKeys) {
+	if(allowedKeys == 'left') { 
+		this.x += -20; 
+		} else if(allowedKeys == 'right') { 
+		this.x += 20; 
+		} else if (allowedKeys == 'up' ) {
+		this.y+= -20; 	
+		} else if (allowedKeys == 'down' ) {
+		this.y+= 20; 	
+	}
 };
 
 
