@@ -56,13 +56,13 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(allowedKeys) {
-	if(allowedKeys == 'left') { 
-		this.x += -20; 
-		} else if(allowedKeys == 'right') { 
+	if(allowedKeys == 'left' && player.x > 0 ) { 
+		this.x -= 20; 
+		} else if(allowedKeys == 'right' && player.x < 420) { 
 		this.x += 20; 
-		} else if (allowedKeys == 'up' ) {
+		} else if (allowedKeys == 'up' && player.y > 0) {
 		this.y+= -20; 	
-		} else if (allowedKeys == 'down' ) {
+		} else if (allowedKeys == 'down' && player.y < 400) {
 		this.y+= 20; 	
 	}
 };
