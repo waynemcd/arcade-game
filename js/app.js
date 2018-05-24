@@ -3,6 +3,7 @@
 
 var speed;//enemy speed
 var score = 0;
+var displayScore = document.getElementById('playerScore');
 
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
@@ -52,6 +53,10 @@ var Player = function() {
 		this.x = 200;
 		this.y = 320;
 	};
+	this.score = function() {
+		score++;  // Increment score
+		displayScore.innerHTML = score; //Update score onscreen
+	}
 }
 
 player = new Player();
@@ -79,7 +84,7 @@ Player.prototype.handleInput = function(allowedKeys) {
 		// If player reaches the water reset to starting position
 		if(player.y === 0){
 			player.reset();
-			score++; //Increment score
+			player.score(); //Increment score
 		}
 };
 
@@ -93,6 +98,5 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
     player.handleInput(allowedKeys[e.keyCode]);
 });
