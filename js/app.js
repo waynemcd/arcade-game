@@ -2,6 +2,7 @@
 
 
 var speed;//enemy speed
+var score = 0;
 
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
@@ -20,13 +21,10 @@ var enemy = new Enemy();
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-var enemy1 = new Enemy(0,58,10);
-var enemy2 = new Enemy(0,143,20);
-var enemy2 = new Enemy(0,143,20);
-var enemy3 = new Enemy(0,224,30);
+// instantiate objects
+var enemy1 = new Enemy(0,58,20);
+var enemy2 = new Enemy(-100,143,10);
+var enemy3 = new Enemy(-300,224,90);
 var allEnemies = [enemy1, enemy2, enemy3];
 
 Enemy.prototype.update = function(dt) {
@@ -50,8 +48,10 @@ Enemy.prototype.render = function() {
 var Player = function() {
 	this.sprite = 'images/char-boy.png';
 	//Initial player starting position
-	this.x = 200;
-	this.y = 320;
+	this.reset = function() {
+		this.x = 200;
+		this.y = 320;
+	};
 }
 
 player = new Player();
@@ -72,12 +72,18 @@ Player.prototype.handleInput = function(allowedKeys) {
 		} else if(allowedKeys == 'right' && player.x < 420) {  // Determines how far right on screen player can travel
 		this.x += 20; 
 		} else if (allowedKeys == 'up' && player.y > 0) {      // Determines how far player can travel to the top
-		this.y+= -20; 	
+		this.y+= -20;
 		} else if (allowedKeys == 'down' && player.y < 400) {  // Determines how far to the bottom player can go
-		this.y+= 20; 	
-	}
+		this.y+= 20; 
+		}
+		// If player reaches the water reset to starting position
+		if(player.y === 0){
+			player.reset();
+			score++; //Increment score
+		}
 };
 
+player.reset(); //Place player at starting position
 
 // This listens for key presses and sends the keys to Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
