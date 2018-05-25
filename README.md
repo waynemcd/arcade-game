@@ -1,6 +1,6 @@
 # Frontend-nanodegree-arcade-game
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Game preview")
+![alt text](https://github.com/waynemcd/arcade-game/blob/master/arcade-game-screenshot.jpg "Game preview")
 
 How to launch the Game
 http://htmlpreview.github.io/?https://github.com/waynemcd/arcade-game/blob/master/index.html
