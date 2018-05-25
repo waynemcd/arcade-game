@@ -1,6 +1,7 @@
 frontend-nanodegree-arcade-game
 ===============================
+How to launch the Game
+http://htmlpreview.github.io/?https://github.com/waynemcd/arcade-game/blob/master/index.html
 
-**readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
-
-
+ Instructions
+ Use the arrow keys to navigate the player to safely to the water while avoiding ladybugs! Score points each time the water is reached.
