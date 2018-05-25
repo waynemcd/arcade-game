@@ -23,9 +23,9 @@ var enemy = new Enemy();
 // Parameter: dt, a time delta between ticks
 
 // instantiate objects
-var enemy1 = new Enemy(0,58,20);
-var enemy2 = new Enemy(-100,143,10);
-var enemy3 = new Enemy(-300,224,90);
+var enemy1 = new Enemy(0,143,20);
+var enemy2 = new Enemy(-100,224,10);
+var enemy3 = new Enemy(-300,300,90);
 var allEnemies = [enemy1, enemy2, enemy3];
 
 Enemy.prototype.update = function(dt) {
@@ -50,21 +50,30 @@ var Player = function() {
 	this.sprite = 'images/char-boy.png';
 	//Initial player starting position
 	this.reset = function() {
-		this.x = 200;
-		this.y = 320;
+		this.x = 220;
+		this.y = 380;
 	};
 	this.score = function() {
 		score++;  // Increment score
 		displayScore.innerHTML = score; //Update score onscreen
+	};
+	this.checkCollision = function() {
+		for(var c = 0; c < allEnemies.length;c++){
+			if (player.x < allEnemies[c].x + 98  && player.x + 69  > allEnemies[c].x &&
+				player.y < allEnemies[c].y + 76 && player.y + 20 > allEnemies[c].y) {
+			// Collision detected, reset player to starting position
+			player.reset();
+			}	
+		}
 	}
-}
+};
 
 player = new Player();
 
 Player.prototype.update = function() {
-	
+	this.checkCollision(); //Check if an interaction took place
 };
-
+//
 // Draw the enemy on the screen
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -76,13 +85,13 @@ Player.prototype.handleInput = function(allowedKeys) {
 		this.x -= 20; 
 		} else if(allowedKeys == 'right' && player.x < 420) {  // Determines how far right on screen player can travel
 		this.x += 20; 
-		} else if (allowedKeys == 'up' && player.y > 0) {      // Determines how far player can travel to the top
+		} else if (allowedKeys == 'up' && player.y > 40) {      // Determines how far player can travel to the top
 		this.y+= -20;
-		} else if (allowedKeys == 'down' && player.y < 400) {  // Determines how far to the bottom player can go
+		} else if (allowedKeys == 'down' && player.y < 450) {  // Determines how far to the bottom player can go
 		this.y+= 20; 
 		}
 		// If player reaches the water reset to starting position
-		if(player.y === 0){
+		if(player.y === 40){
 			player.reset();
 			player.score(); //Increment score
 		}
