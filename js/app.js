@@ -12,7 +12,7 @@ var Enemy = function(x,y,speed) {
     // a helper we've provided to easily load image
 	this.x = x;
 	this.y = y;
-	this.speed = 100;
+	this.speed = 90;
 	this.sprite = 'images/enemy-bug.png';
 	this.width = 101;
 	this.height = 171;
@@ -24,9 +24,13 @@ var enemy = new Enemy();
 
 // instantiate objects
 var enemy1 = new Enemy(0,143,20);
-var enemy2 = new Enemy(-100,224,10);
-var enemy3 = new Enemy(-300,300,90);
-var allEnemies = [enemy1, enemy2, enemy3];
+var enemy2 = new Enemy(-900,224,10);
+var enemy3 = new Enemy(-0,300,90);
+var enemy4 = new Enemy(-230,143,20);
+var enemy5 = new Enemy(-190,224,10);
+var enemy6 = new Enemy(-770,300,90);
+//var enemy7 = new Enemy(-900,300,90);
+var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 
 Enemy.prototype.update = function(dt) {
     // Multiply movement by the dt parameter
@@ -57,7 +61,7 @@ var Player = function() {
 		score++;  // Increment score
 		displayScore.innerHTML = score; //Update score onscreen
 	};
-	this.checkCollision = function() {
+	this.checkCollision = function() { // Check if player touches enemy if so reset position
 		for(var c = 0; c < allEnemies.length;c++){
 			if (player.x < allEnemies[c].x + 98  && player.x + 69  > allEnemies[c].x &&
 				player.y < allEnemies[c].y + 76 && player.y + 20 > allEnemies[c].y) {
