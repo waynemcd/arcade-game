@@ -1,4 +1,4 @@
-frontend-nanodegree-arcade-game
+# Frontend-nanodegree-arcade-game
 ===============================
 How to launch the Game
 http://htmlpreview.github.io/?https://github.com/waynemcd/arcade-game/blob/master/index.html
