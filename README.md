@@ -2,6 +2,9 @@
 
 ![alt text](https://github.com/waynemcd/arcade-game/blob/master/arcade-game-screenshot.jpg "Game preview")
 
+## About the game
+Classic Frogger style arcade game created using Object Oriented JavaScript as part of the Front End Developer Nanodegree program.
+
 ## How to launch the Game
 http://htmlpreview.github.io/?https://github.com/waynemcd/arcade-game/blob/master/index.html
 
