@@ -7,7 +7,7 @@ Classic Frogger style arcade game created using Object Oriented JavaScript as pa
 
 ## How to launch the Game
 Download the folder from https://github.com/waynemcd/arcade-game/archive/master.zip and open index.html in your browser.
-The game can be previwed here:
+Alternitively, The game can be previewed here:
 http://htmlpreview.github.io/?https://github.com/waynemcd/arcade-game/blob/master/index.html
 
  ## Instructions
